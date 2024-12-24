@@ -1,123 +1,137 @@
 [
-    {
-      "id_no": 1,
-      "name": "Classic T-Shirt",
-      "size": ["S", "M", "L", "XL"],
-      "price": 19.99,
-      "image": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Male"
-    },
-    {
-      "id_no": 2,
-      "name": "Denim Jacket",
-      "size": ["M", "L", "XL"],
-      "price": 49.99,
-      "image": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Male"
-    },
-    {
-      "id_no": 3,
-      "name": "Chino Pants",
-      "size": ["S", "M", "L", "XL", "XXL"],
-      "price": 39.99,
-      "image": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Male"
-    },
-    {
-      "id_no": 4,
-      "name": "Formal Shirt",
-      "size": ["S", "M", "L", "XL", "XXL"],
-      "price": 29.99,
-      "image": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Male"
-    },
-    {
-      "id_no": 5,
-      "name": "Hooded Sweatshirt",
-      "size": ["M", "L", "XL", "XXL"],
-      "price": 34.99,
-      "image": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Male"
-    },
-    {
-      "id_no": 6,
-      "name": "Floral Summer Dress",
-      "size": ["XS", "S", "M", "L", "XL"],
-      "price": 29.99,
-      "image": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Female"
-    },
-    {
-      "id_no": 7,
-      "name": "Denim Skirt",
-      "size": ["S", "M", "L", "XL"],
-      "price": 24.99,
-      "image": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Female"
-    },
-    {
-      "id_no": 8,
-      "name": "Silk Blouse",
-      "size": ["XS", "S", "M", "L"],
-      "price": 34.99,
-      "image": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Female"
-    },
-    {
-      "id_no": 9,
-      "name": "Yoga Leggings",
-      "size": ["XS", "S", "M", "L", "XL", "XXL"],
-      "price": 19.99,
-      "image": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Female"
-    },
-    {
-      "id_no": 10,
-      "name": "Woolen Cardigan",
-      "size": ["S", "M", "L", "XL", "XXL"],
-      "price": 39.99,
-      "image": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Female"
-    },
-    {
-      "id_no": 11,
-      "name": "Cartoon T-Shirt",
-      "size": ["XS", "S", "M", "L"],
-      "price": 14.99,
-      "image": "https://plus.unsplash.com/premium_photo-1661427547746-a807b15b6ae0?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Kids"
-    },
-    {
-      "id_no": 12,
-      "name": "Denim Shorts",
-      "size": ["XS", "S", "M", "L"],
-      "price": 17.99,
-      "image": "https://plus.unsplash.com/premium_photo-1661427547746-a807b15b6ae0?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Kids"
-    },
-    {
-      "id_no": 13,
-      "name": "Hooded Jacket",
-      "size": ["S", "M", "L", "XL"],
-      "price": 29.99,
-      "image": "https://plus.unsplash.com/premium_photo-1661427547746-a807b15b6ae0?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Kids"
-    },
-    {
-      "id_no": 14,
-      "name": "Pajama Set",
-      "size": ["XS", "S", "M", "L"],
-      "price": 19.99,
-      "image": "https://plus.unsplash.com/premium_photo-1661427547746-a807b15b6ae0?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Kids"
-    },
-    {
-      "id_no": 15,
-      "name": "Raincoat",
-      "size": ["S", "M", "L"],
-      "price": 24.99,
-      "image": "https://plus.unsplash.com/premium_photo-1661427547746-a807b15b6ae0?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "category": "Kids"
-    }
-  ]
-  
+  {
+    "id_no": 1,
+    "name": "Classic T-Shirt",
+    "size": ["S", "M", "L", "XL"],
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Male",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 2,
+    "name": "Denim Jacket",
+    "size": ["M", "L", "XL"],
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Male",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 3,
+    "name": "Chino Pants",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "price": 39.99,
+    "image": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Male",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 4,
+    "name": "Formal Shirt",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Male",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 5,
+    "name": "Hooded Sweatshirt",
+    "size": ["M", "L", "XL", "XXL"],
+    "price": 34.99,
+    "image": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Male",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 6,
+    "name": "Floral Summer Dress",
+    "size": ["XS", "S", "M", "L", "XL"],
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Female",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 7,
+    "name": "Denim Skirt",
+    "size": ["S", "M", "L", "XL"],
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Female",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 8,
+    "name": "Silk Blouse",
+    "size": ["XS", "S", "M", "L"],
+    "price": 34.99,
+    "image": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Female",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 9,
+    "name": "Yoga Leggings",
+    "size": ["XS", "S", "M", "L", "XL", "XXL"],
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Female",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 10,
+    "name": "Woolen Cardigan",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "price": 39.99,
+    "image": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Female",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 11,
+    "name": "Cartoon T-Shirt",
+    "size": ["XS", "S", "M", "L"],
+    "price": 14.99,
+    "image": "https://plus.unsplash.com/premium_photo-1661427547746-a807b15b6ae0?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Kids",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 12,
+    "name": "Denim Shorts",
+    "size": ["XS", "S", "M", "L"],
+    "price": 17.99,
+    "image": "https://plus.unsplash.com/premium_photo-1661427547746-a807b15b6ae0?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Kids",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 13,
+    "name": "Hooded Jacket",
+    "size": ["S", "M", "L", "XL"],
+    "price": 29.99,
+    "image": "https://plus.unsplash.com/premium_photo-1661427547746-a807b15b6ae0?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Kids",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 14,
+    "name": "Pajama Set",
+    "size": ["XS", "S", "M", "L"],
+    "price": 19.99,
+    "image": "https://plus.unsplash.com/premium_photo-1661427547746-a807b15b6ae0?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Kids",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  },
+  {
+    "id_no": 15,
+    "name": "Raincoat",
+    "size": ["S", "M", "L"],
+    "price": 24.99,
+    "image": "https://plus.unsplash.com/premium_photo-1661427547746-a807b15b6ae0?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Kids",
+    "details": "Made from 100% cotton, this classic t-shirt is soft, breathable, and perfect for everyday wear. Features durable stitching and a comfortable fit."
+  }
+]

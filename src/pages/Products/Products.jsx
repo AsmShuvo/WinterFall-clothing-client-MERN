@@ -136,7 +136,7 @@ const Products = () => {
                 <h2 className="text-lg font-bold mb-4">Products</h2>
                 <div className="grid grid-cols-3 gap-4">
                     {filteredProducts.map((item) => (
-                        <Item item={item} key={item.id_no}/>
+                        <Item item={item} key={item}/>
                     ))}
                 </div>
             </div>
