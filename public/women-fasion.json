@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1616430286685-d11d259848b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Trench Coat",
+    "price": 150,
+    "size": ["XS", "S", "M", "L"],
+    "color": "Camel"
+  },
+  {
+    "id": 2,
+    "image": "https://images.unsplash.com/photo-1616430286685-d11d259848b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Faux Fur Jacket",
+    "price": 130,
+    "size": ["S", "M", "L"],
+    "color": "White"
+  },
+  {
+    "id": 3,
+    "image": "https://images.unsplash.com/photo-1616430286685-d11d259848b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Knitted Cardigan",
+    "price": 50,
+    "size": ["S", "M", "L"],
+    "color": "Beige"
+  },
+  {
+    "id": 4,
+    "image": "https://images.unsplash.com/photo-1616430286685-d11d259848b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Wool Turtleneck Sweater",
+    "price": 65,
+    "size": ["S", "M", "L"],
+    "color": "Cream"
+  },
+  {
+    "id": 5,
+    "image": "https://images.unsplash.com/photo-1616430286685-d11d259848b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Cashmere Wrap Scarf",
+    "price": 40,
+    "size": ["One Size"],
+    "color": "Burgundy"
+  },
+  {
+    "id": 6,
+    "image": "https://images.unsplash.com/photo-1616430286685-d11d259848b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Fleece-lined Leggings",
+    "price": 35,
+    "size": ["S", "M", "L"],
+    "color": "Black"
+  },
+  {
+    "id": 7,
+    "image": "https://images.unsplash.com/photo-1616430286685-d11d259848b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Quilted Parka",
+    "price": 110,
+    "size": ["M", "L", "XL"],
+    "color": "Forest Green"
+  },
+  {
+    "id": 8,
+    "image": "https://images.unsplash.com/photo-1616430286685-d11d259848b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Fur-lined Boots",
+    "price": 125,
+    "size": [6, 7, 8, 9],
+    "color": "Gray"
+  },
+  {
+    "id": 9,
+    "image": "https://images.unsplash.com/photo-1616430286685-d11d259848b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Wool Beret",
+    "price": 25,
+    "size": ["One Size"],
+    "color": "Red"
+  },
+  {
+    "id": 10,
+    "image": "https://images.unsplash.com/photo-1616430286685-d11d259848b9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Thermal Gloves",
+    "price": 20,
+    "size": ["S", "M"],
+    "color": "Navy"
+  }
+]

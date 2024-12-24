@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Wool Overcoat",
+    "price": 120,
+    "size": ["S", "M", "L", "XL"],
+    "color": "Black"
+  },
+  {
+    "id": 2,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Puffer Jacket",
+    "price": 85,
+    "size": ["M", "L", "XL"],
+    "color": "Navy Blue"
+  },
+  {
+    "id": 3,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Thermal Sweater",
+    "price": 45,
+    "size": ["S", "M", "L"],
+    "color": "Gray"
+  },
+  {
+    "id": 4,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Leather Gloves",
+    "price": 30,
+    "size": ["M", "L"],
+    "color": "Brown"
+  },
+  {
+    "id": 5,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Wool Scarf",
+    "price": 25,
+    "size": ["One Size"],
+    "color": "Dark Green"
+  },
+  {
+    "id": 6,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Thermal Socks",
+    "price": 15,
+    "size": ["One Size"],
+    "color": "Black"
+  },
+  {
+    "id": 7,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Cashmere Beanie",
+    "price": 20,
+    "size": ["One Size"],
+    "color": "Charcoal"
+  },
+  {
+    "id": 8,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Fleece Hoodie",
+    "price": 60,
+    "size": ["M", "L", "XL"],
+    "color": "Maroon"
+  },
+  {
+    "id": 9,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Insulated Boots",
+    "price": 140,
+    "size": [7, 8, 9, 10, 11],
+    "color": "Tan"
+  },
+  {
+    "id": 10,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Down Vest",
+    "price": 75,
+    "size": ["M", "L", "XL"],
+    "color": "Olive"
+  }
+]

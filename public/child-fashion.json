@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Puffer Coat",
+    "price": 70,
+    "size": ["XS", "S", "M", "L"],
+    "color": "Blue"
+  },
+  {
+    "id": 2,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Thermal Pajamas",
+    "price": 35,
+    "size": ["2T", "3T", "4T"],
+    "color": "Pink"
+  },
+  {
+    "id": 3,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Knitted Sweater",
+    "price": 40,
+    "size": ["XS", "S", "M"],
+    "color": "Yellow"
+  },
+  {
+    "id": 4,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Snow Pants",
+    "price": 55,
+    "size": ["S", "M", "L"],
+    "color": "Black"
+  },
+  {
+    "id": 5,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Wool Beanie",
+    "price": 18,
+    "size": ["One Size"],
+    "color": "Blue"
+  },
+  {
+    "id": 6,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Insulated Mittens",
+    "price": 15,
+    "size": ["S", "M"],
+    "color": "Pink"
+  },
+  {
+    "id": 7,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Quilted Vest",
+    "price": 45,
+    "size": ["XS", "S", "M"],
+    "color": "Red"
+  },
+  {
+    "id": 8,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Fleece Hoodie",
+    "price": 50,
+    "size": ["S", "M", "L"],
+    "color": "Gray"
+  },
+  {
+    "id": 9,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Snow Boots",
+    "price": 80,
+    "size": [10, 11, 12, 13],
+    "color": "Black"
+  },
+  {
+    "id": 10,
+    "image": "https://images.unsplash.com/photo-1680292783974-a9a336c10366?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Thermal Socks",
+    "price": 12,
+    "size": ["One Size"],
+    "color": "White"
+  }
+]
