@@ -33,9 +33,9 @@ const ItemDetails = () => {
     }, [id]);
 
     const handleAddToCart = () => {
-        alert(`Added ${quantity} of "${itemDetails.name}" to the cart.`);
-        setQuantity(1);
-        // You can integrate this logic with your cart management system (e.g., Redux, Context API)
+        alert(`Added ${quantity} of "${itemDetails.name}" to the cart.`); 
+        
+
     };
 
     if (error) {
