@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className="banner-container flex flex-col md:flex-row items-center bg-white shadow-lg p-6 md:p-12">
+        <div className="banner-container flex flex-col md:flex-row items-center bg-white p-6 md:p-12">
             {/* Text Section */}
             <div className="banner-text flex-grow text-center md:text-left md:pr-6">
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
