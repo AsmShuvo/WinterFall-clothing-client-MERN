@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const ItemDetails = () => {
+    const server_url = import.meta.env.VITE_SERVER_URL;
     const { id } = useParams();
     const [itemDetails, setItemDetails] = useState(null);
     const [quantity, setQuantity] = useState(1); // State for quantity
@@ -10,20 +11,9 @@ const ItemDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/clothes.json'); // Fetch from public folder
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
+                const response = await fetch(`${server_url}/products/${id}`);
                 const data = await response.json();
-
-                // Find the item by id
-                const item = data.find((item) => item.id_no.toString() === id);
-
-                if (!item) {
-                    throw new Error('Item not found');
-                }
-
-                setItemDetails(item);
+                setItemDetails(data);
             } catch (err) {
                 setError(err.message);
             }
@@ -33,8 +23,8 @@ const ItemDetails = () => {
     }, [id]);
 
     const handleAddToCart = () => {
-        alert(`Added ${quantity} of "${itemDetails.name}" to the cart.`); 
-        
+        alert(`Added ${quantity} of "${itemDetails.name}" to the cart.`);
+
 
     };
 

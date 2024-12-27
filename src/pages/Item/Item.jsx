@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
-    const { name, size, price, image, category, id_no } = item;
+    const { name, size, price, image, category, _id } = item;
     return (
-        <Link to={`/products/${id_no}`}>
+        <Link to={`/products/${_id}`}>
             <div className='m-4'>
                 <div className="card card-compact bg-base-100  p-4 w-64">
                     <figure>
