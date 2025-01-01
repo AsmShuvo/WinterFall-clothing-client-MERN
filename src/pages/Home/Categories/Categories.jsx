@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Item from '../../Item/Item';
 
 const Categories = () => {
+    const server_ur = import.meta.env.VITE_SERVER_URL;
     const [maleClothes, setMaleClothes] = useState([]);
     const [femaleClothes, setFemaleClothes] = useState([]);
     const [kidsClothes, setKidsClothes] = useState([]);
@@ -9,18 +10,17 @@ const Categories = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/clothes.json'); // Fetch from public folder
+                const response = await fetch(`${server_ur}/products`);
+                const data = await response.json();
+                console.log("Data: ", data);
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                const data = await response.json();
-
-                // Filter data category-wise and limit to 4 items
                 const males = data.filter(item => item.category === 'Male').slice(0, 4);
                 const females = data.filter(item => item.category === 'Female').slice(0, 4);
                 const kids = data.filter(item => item.category === 'Kids').slice(0, 4);
 
-                // Update state
                 setMaleClothes(males);
                 setFemaleClothes(females);
                 setKidsClothes(kids);
