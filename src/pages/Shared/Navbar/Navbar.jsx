@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { FaCartShopping } from 'react-icons/fa6';
+import { MdAdminPanelSettings } from 'react-icons/md';
+import { FaRegUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    console.log("User in navbar: ", user?.email);
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -51,12 +54,19 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="navbar-end gap-8"><span className='font-mono bg-gray-100 rounded-full px-1'>{user?.email}</span>
-                    <div>
-                        <Link to={"/cart"}>
-                            <FaCartShopping className='text-green-800' />
-                        </Link>
-                    </div>
+                <div className="navbar-end gap-8"><span className='font-mono bg-gray-100 px-2 rounded-full items-center justify-center flex gap-1 text-gray-600'><FaRegUserCircle />{user?.email}</span>
+                    {
+                        user?.email == "admin@gmail.com" ?
+                            <div className='flex items-center justify-center gap-1 py-1 px-4 bg-gray-800 rounded-full'>
+                                <span className='font-bold font-mono text-white'>Admin Panel</span>
+                                <MdAdminPanelSettings className='text-3xl text-gray-500' /></div>
+                            :
+                            <div>
+                                <Link to={"/cart"}>
+                                    <FaCartShopping className='text-green-800 text-2xl' />
+                                </Link>
+                            </div>
+                    }
 
                     {
                         user ?

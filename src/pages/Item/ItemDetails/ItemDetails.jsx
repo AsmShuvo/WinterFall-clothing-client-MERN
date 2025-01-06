@@ -30,6 +30,7 @@ const ItemDetails = () => {
             productName: itemDetails.name,
             quantity: quantity,
             price: itemDetails.price * quantity,
+            status: "pending"
         };
 
         try {
