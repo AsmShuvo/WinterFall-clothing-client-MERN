@@ -51,12 +51,13 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="navbar-end gap-8">
+                <div className="navbar-end gap-8"><span className='font-mono bg-gray-100 rounded-full px-1'>{user?.email}</span>
                     <div>
                         <Link to={"/cart"}>
                             <FaCartShopping className='text-green-800' />
                         </Link>
                     </div>
+
                     {
                         user ?
                             <><button onClick={handleLogout} className='btn text-white bg-red-700 btn-sm'>Logout</button> </> :

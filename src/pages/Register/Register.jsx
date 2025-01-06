@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -8,6 +8,7 @@ import { CiUser } from 'react-icons/ci';
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const server_url = import.meta.env.VITE_SERVER_URL;
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         name: '',
@@ -70,6 +71,8 @@ const Register = () => {
                     password: formData.password,
                     account: formData.bankAccount,
                 });
+                navigate("/");
+
             })
             .catch(err => {
                 setError(err.message || "Something went wrong.");
@@ -84,7 +87,7 @@ const Register = () => {
                 {/* Display User Details After Registration */}
                 {userDetails && (
                     <div className="mb-4 p-4 bg-green-100 border border-green-200 rounded-lg">
-                        <h3 className="text-lg flex gap-1 items-center font-semibold text-green-700"><CiUser/> User Information</h3>
+                        <h3 className="text-lg flex gap-1 items-center font-semibold text-green-700"><CiUser /> User Information</h3>
                         <p><strong>Name:</strong> {userDetails.name}</p>
                         <p><strong>Email:</strong> {userDetails.email}</p>
                         <p><strong>Bank Account No:</strong> {userDetails.bankAccount}</p>

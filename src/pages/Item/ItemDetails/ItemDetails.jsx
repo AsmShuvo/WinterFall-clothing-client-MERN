@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const ItemDetails = () => {
     const server_url = import.meta.env.VITE_SERVER_URL;
     const { id } = useParams();
     const [itemDetails, setItemDetails] = useState(null);
-    const [quantity, setQuantity] = useState(1); // State for quantity
+    const [quantity, setQuantity] = useState(1);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -22,10 +24,28 @@ const ItemDetails = () => {
         fetchData();
     }, [id]);
 
-    const handleAddToCart = () => {
-        alert(`Added ${quantity} of "${itemDetails.name}" to the cart.`);
+    const handleAddToCart = async () => {
+        const cartItem = {
+            productId: itemDetails._id,
+            productName: itemDetails.name,
+            quantity: quantity,
+            price: itemDetails.price * quantity,
+        };
 
+        try {
+            await axios.post(`${server_url}/cart`, cartItem);
+            Swal.fire(`${quantity} ${itemDetails.name} added to the cart.`);
+        } catch (err) {
+            setError('Error adding item to the cart.');
+        }
+    };
 
+    const handleQuantityChange = (action) => {
+        if (action === 'increment') {
+            setQuantity((prevQuantity) => Math.min(prevQuantity + 1, 99));
+        } else if (action === 'decrement') {
+            setQuantity((prevQuantity) => Math.max(prevQuantity - 1, 1));
+        }
     };
 
     if (error) {
@@ -89,19 +109,21 @@ const ItemDetails = () => {
                             >
                                 Quantity:
                             </label>
-                            <input
-                                id="quantity"
-                                type="number"
-                                value={quantity}
-                                min="1"
-                                max="99"
-                                className="w-16 p-2 text-white rounded bg-gray-800"
-                                onChange={(e) =>
-                                    setQuantity(
-                                        Math.max(1, Math.min(99, parseInt(e.target.value) || 1))
-                                    )
-                                }
-                            />
+                            <div className="flex items-center bg-gray-800 text-white rounded">
+                                <button
+                                    className="p-2 px-4"
+                                    onClick={() => handleQuantityChange('decrement')}
+                                >
+                                    -
+                                </button>
+                                <span className="px-4">{quantity}</span>
+                                <button
+                                    className="p-2 px-4"
+                                    onClick={() => handleQuantityChange('increment')}
+                                >
+                                    +
+                                </button>
+                            </div>
                         </div>
                         <div className="flex mt-3 -mx-2 mb-4">
                             <div className="px-2">

@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
+    const navigate = useNavigate();
     const { signIn } = useContext(AuthContext);
     const [formData, setFormData] = useState({
         email: '',
@@ -33,14 +34,20 @@ const Login = () => {
             return;
         }
 
-        setError(null);
-        // alert('Login Successful');
+
         // Handle login logic here
         console.log(formData.email, formData.password);
         signIn(formData.email, formData.password)
             .then(res => {
                 const user = res.user;
                 console.log("Signed in user: ", user);
+                setError(null);
+                alert('Login Successful');
+                navigate("/");
+            })
+            .catch(err => {
+                console.log("Error while loging in");
+                alert("Login Failed. Check your email/password again");
             })
     };
 
