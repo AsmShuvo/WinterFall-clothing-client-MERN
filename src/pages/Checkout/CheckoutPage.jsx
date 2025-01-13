@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const CheckoutPage = () => {
     const navigate = useNavigate();
     const server_url = import.meta.env.VITE_SERVER_URL;
-    const [cartData, setCartData] = useState(null);
+    const [cartData, setCartData] = useState([]);
     const [selectedMethod, setSelectedMethod] = useState('');
     const [transactionId, setTransactionId] = useState('');
     const [accountNumber, setAccountNumber] = useState('');
@@ -14,18 +14,8 @@ const CheckoutPage = () => {
     useEffect(() => {
         const fetchCartData = async () => {
             try {
-                const response = await fetch(`${server_url}/cart`);
-                const data = await response.json();
-
-                const productIds = data.map(item => item.productId);
-                const productNames = data.map(item => item.productName);
-                const totalPrice = data.reduce((acc, item) => acc + parseFloat(item.price) * item.quantity, 0);
-
-                setCartData({
-                    productIds,
-                    productNames,
-                    totalPrice
-                });
+                const response = await axios.get(`${server_url}/cart`);
+                setCartData(response.data);
             } catch (error) {
                 console.error('Error fetching cart data:', error);
             }
@@ -51,30 +41,29 @@ const CheckoutPage = () => {
         }
     };
 
-    const handleConfirm = () => {
+    const handleConfirm = async () => {
         if (!transactionId) {
-            Swal.fire('Please enter the transaction ID.');
+            Swal.fire('Error', 'Please enter a transaction ID', 'error');
             return;
         }
 
-        const updatedCartData = {
-            ...cartData,
-            method: selectedMethod,
-            trxId: transactionId
-        };
-        Swal.fire({
-            title: "Congratulations!",
-            text: "Your payment proceedure is complete. Please wait for our confirmation",
-            icon: "success"
-        });
-        console.log('Updated Cart Data:', updatedCartData);
-
-        axios.post(`${server_url}/checkout`, updatedCartData);
-
-        navigate("/cart");
+        try {
+            await Promise.all(cartData.map(async (item) => {
+                await axios.put(`${server_url}/cart/${item.productId}`, {
+                    transactionId,
+                });
+            }));
+            Swal.fire('Success', 'Transaction confirmed!', 'success');
+            navigate('/cart');
+        } catch (error) {
+            console.error('Error updating cart:', error);
+            Swal.fire('Error', 'Failed to confirm transaction', 'error');
+        }
     };
 
-    if (!cartData) {
+    const totalPrice = cartData.reduce((acc, item) => acc + parseFloat(item.price) * item.quantity, 0);
+
+    if (!cartData.length) {
         return <div className="min-h-screen flex items-center justify-center text-lg font-medium">Loading...</div>;
     }
 
@@ -85,21 +74,15 @@ const CheckoutPage = () => {
                 <div className="mb-6">
                     <h2 className="text-xl font-semibold text-gray-700 mb-2">Products</h2>
                     <ul className="list-disc pl-5 space-y-1">
-                        {cartData.productNames.map((name, index) => (
-                            <li key={index} className="text-gray-600">{name}</li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="mb-6">
-                    <h2 className="text-xl font-semibold text-gray-700 mb-2">Product IDs</h2>
-                    <ul className="list-disc pl-5 space-y-1">
-                        {cartData.productIds.map((id, index) => (
-                            <li key={index} className="text-gray-600">{id}</li>
+                        {cartData.map((item, index) => (
+                            <li key={index} className="text-gray-600">
+                                {item.productName} - ${item.price} x {item.quantity}
+                            </li>
                         ))}
                     </ul>
                 </div>
                 <div className="text-center mb-6">
-                    <h2 className="text-2xl font-semibold text-gray-800">Total Price: <span className="text-green-600">${cartData.totalPrice.toFixed(2)}</span></h2>
+                    <h2 className="text-2xl font-semibold text-gray-800">Total Price: <span className="text-green-600">${totalPrice.toFixed(2)}</span></h2>
                 </div>
                 <div className="mb-6">
                     <h2 className="text-xl font-semibold text-gray-700 mb-2">Select Payment Method</h2>
