@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { AuthContext } from './../../../provider/AuthProvider';
 
 const ItemDetails = () => {
     const server_url = import.meta.env.VITE_SERVER_URL;
@@ -9,6 +10,8 @@ const ItemDetails = () => {
     const [itemDetails, setItemDetails] = useState(null);
     const [quantity, setQuantity] = useState(1);
     const [error, setError] = useState(null);
+
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,7 +33,8 @@ const ItemDetails = () => {
             productName: itemDetails.name,
             quantity: quantity,
             price: itemDetails.price * quantity,
-            status: "pending"
+            status: "pending",
+            user: user?.email,
         };
 
         try {

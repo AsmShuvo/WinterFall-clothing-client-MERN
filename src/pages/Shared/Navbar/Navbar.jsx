@@ -57,9 +57,12 @@ const Navbar = () => {
                 <div className="navbar-end gap-8"><span className='font-mono bg-gray-100 px-2 rounded-full items-center justify-center flex gap-1 text-gray-600'><FaRegUserCircle />{user?.email}</span>
                     {
                         user?.email == "admin@gmail.com" ?
-                            <div className='flex items-center justify-center gap-1 py-1 px-4 bg-gray-800 rounded-full'>
-                                <span className='font-bold font-mono text-white'>Admin Panel</span>
-                                <MdAdminPanelSettings className='text-3xl text-gray-500' /></div>
+                            <Link to="/admin">
+                                <div className='flex items-center justify-center gap-1 py-1 px-4 bg-gray-800 rounded-full'>
+                                    <span className='font-bold font-mono text-white'>Admin</span>
+                                    <MdAdminPanelSettings className='text-3xl text-gray-500' />
+                                </div>
+                            </Link>
                             :
                             <div>
                                 <Link to={"/cart"}>
