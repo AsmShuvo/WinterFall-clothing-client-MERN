@@ -1,40 +1,67 @@
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const CheckoutPage = () => {
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const server_url = import.meta.env.VITE_SERVER_URL;
+
     const [cartData, setCartData] = useState([]);
     const [selectedMethod, setSelectedMethod] = useState('');
     const [transactionId, setTransactionId] = useState('');
     const [accountNumber, setAccountNumber] = useState('');
+    const [userData, setUserData] = useState(null);
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchCartData = async () => {
+            if (!user?.email) return;
+
             try {
-                const response = await axios.get(`${server_url}/cart`);
-                setCartData(response.data);
+                const response = await axios.get(`${server_url}/cart`, {
+                    params: { email: user.email }
+                });
+                const itemsToCheckout = response.data.filter(item => !item.transactionId && item.status === 'pending');
+                setCartData(itemsToCheckout);
             } catch (error) {
                 console.error('Error fetching cart data:', error);
+                setError('Failed to fetch cart items.');
+            }
+        };
+
+        const fetchUserData = async () => {
+            if (!user?.email) return;
+
+            try {
+                const response = await axios.get(`${server_url}/users`, {
+                    params: { email: user.email }
+                });
+                setUserData(response.data);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+                setError('Failed to fetch user data.');
             }
         };
 
         fetchCartData();
-    }, [server_url]);
+        fetchUserData();
+    }, [server_url, user?.email]);
 
     const handleMethodChange = (method) => {
         setSelectedMethod(method);
         switch (method) {
             case 'bkash':
-                setAccountNumber('017XXXXXXXX');
+                setAccountNumber('01712345678');
                 break;
             case 'rocket':
-                setAccountNumber('018XXXXXXXX');
+                setAccountNumber('01812345678');
                 break;
             case 'nagad':
-                setAccountNumber('019XXXXXXXX');
+                setAccountNumber('01912345678');
                 break;
             default:
                 setAccountNumber('');
@@ -43,7 +70,17 @@ const CheckoutPage = () => {
 
     const handleConfirm = async () => {
         if (!transactionId) {
-            Swal.fire('Error', 'Please enter a transaction ID', 'error');
+            Swal.fire('Error', 'Please enter a transaction ID.', 'error');
+            return;
+        }
+
+        if (!password) {
+            Swal.fire('Error', 'Please enter your password.', 'error');
+            return;
+        }
+
+        if (userData && userData.password !== password) {
+            Swal.fire('Error', 'Incorrect password.', 'error');
             return;
         }
 
@@ -51,46 +88,83 @@ const CheckoutPage = () => {
             await Promise.all(cartData.map(async (item) => {
                 await axios.put(`${server_url}/cart/${item.productId}`, {
                     transactionId,
+                    email: user.email,
                 });
             }));
-            Swal.fire('Success', 'Transaction confirmed!', 'success');
+            Swal.fire('Success', 'Your transaction has been confirmed!', 'success');
             navigate('/cart');
         } catch (error) {
             console.error('Error updating cart:', error);
-            Swal.fire('Error', 'Failed to confirm transaction', 'error');
+            Swal.fire('Error', 'Failed to confirm transaction.', 'error');
         }
     };
 
     const totalPrice = cartData.reduce((acc, item) => acc + parseFloat(item.price) * item.quantity, 0);
 
+    if (error) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-red-100">
+                <div className="bg-red-200 text-red-800 p-6 rounded-lg shadow-lg">
+                    <p>{error}</p>
+                </div>
+            </div>
+        );
+    }
+
     if (!cartData.length) {
-        return <div className="min-h-screen flex items-center justify-center text-lg font-medium">Loading...</div>;
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-100">
+                <div className="bg-white text-gray-700 p-8 rounded-lg shadow-md">
+                    <h2 className="text-2xl font-semibold mb-4">No items to checkout.</h2>
+                    <Link to="/products">
+                        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                            Browse Products
+                        </button>
+                    </Link>
+                </div>
+            </div>
+        );
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
-                <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Checkout Summary</h1>
-                <div className="mb-6">
-                    <h2 className="text-xl font-semibold text-gray-700 mb-2">Products</h2>
-                    <ul className="list-disc pl-5 space-y-1">
-                        {cartData.map((item, index) => (
-                            <li key={index} className="text-gray-600">
-                                {item.productName} - ${item.price} x {item.quantity}
+        <div className="min-h-screen bg-gradient-to-r from-purple-200 via-pink-200 to-red-200 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 space-y-6">
+                <h1 className="text-3xl font-bold text-center text-purple-700">Checkout Summary</h1>
+
+                {/* Products List */}
+                <div>
+                    <h2 className="text-xl font-semibold text-gray-800 mb-4">Products:</h2>
+                    <ul className="space-y-4">
+                        {cartData.map((item) => (
+                            <li key={item.productId} className="flex justify-between items-center bg-gray-100 p-4 rounded-lg shadow-sm">
+                                <div>
+                                    <h3 className="text-lg font-bold text-gray-700">{item.productName}</h3>
+                                    <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
+                                    <p className="text-sm text-gray-600">Unit Price: ${item.price}</p>
+                                </div>
+                                <div className="text-right">
+                                    <p className="text-lg font-semibold text-green-600">${(item.price * item.quantity).toFixed(2)}</p>
+                                </div>
                             </li>
                         ))}
                     </ul>
                 </div>
-                <div className="text-center mb-6">
-                    <h2 className="text-2xl font-semibold text-gray-800">Total Price: <span className="text-green-600">${totalPrice.toFixed(2)}</span></h2>
+
+                {/* Total Price */}
+                <div className="flex justify-between items-center bg-gray-100 p-4 rounded-lg shadow-sm">
+                    <span className="font-bold text-gray-800">Total Price:</span>
+                    <span className="text-xl font-bold text-purple-600">${totalPrice.toFixed(2)}</span>
                 </div>
-                <div className="mb-6">
-                    <h2 className="text-xl font-semibold text-gray-700 mb-2">Select Payment Method</h2>
+
+                {/* Payment Method Selection */}
+                <div>
+                    <h2 className="text-xl font-semibold text-gray-800 mb-2">Select Payment Method:</h2>
                     <div className="flex justify-around">
-                        {['bkash', 'rocket', 'nagad'].map(method => (
+                        {['bkash', 'rocket', 'nagad'].map((method) => (
                             <button
                                 key={method}
-                                className={`px-4 py-2 rounded-lg ${selectedMethod === method ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+                                className={`flex-1 mx-1 p-2 rounded-lg transition-colors duration-200 ${selectedMethod === method ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-300'
+                                    }`}
                                 onClick={() => handleMethodChange(method)}
                             >
                                 {method.charAt(0).toUpperCase() + method.slice(1)}
@@ -98,23 +172,47 @@ const CheckoutPage = () => {
                         ))}
                     </div>
                 </div>
+
+                {/* Transaction ID Input */}
                 {selectedMethod && (
-                    <div className="mb-6">
-                        <h2 className="text-xl font-semibold text-green-700 mb-1">Account Number: {accountNumber}</h2>
-                        <small className='text-xs font-serif text-gray-400 '>Please pay the total amount through the payment method you choose and fill the next field with the accurate trxId</small>
+                    <div>
+                        <p className='font-semibold  text-gray-500'>Bkash/Nagad/Rocket Number: <span className='text-lg '>01712345678</span></p>
+                        <label htmlFor="transactionId" className="block text-gray-700 font-semibold mb-2">
+                            Transaction ID:
+                        </label>
                         <input
+                            id="transactionId"
                             type="text"
-                            placeholder="Enter Transaction ID"
                             value={transactionId}
                             onChange={(e) => setTransactionId(e.target.value)}
-                            className="w-full px-4 py-2 mt-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Enter your Transaction ID"
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                         />
+                        {/* Password Input */}
+                        <div>
+                            <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
+                                Re-enter Your Password:
+                            </label>
+                            <input
+                                id="password"
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="Enter your password"
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            />
+                        </div>
                     </div>
+
                 )}
-                <div className="text-center">
+
+
+
+                {/* Confirm Button */}
+                <div>
                     <button
                         onClick={handleConfirm}
-                        className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+                        className="w-full bg-purple-600 text-white p-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200"
                     >
                         Confirm
                     </button>

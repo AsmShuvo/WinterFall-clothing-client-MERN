@@ -18,9 +18,24 @@ const Orders = () => {
         fetchCartProducts();
     }, [server_url]);
 
-    const handleConfirm = (productId) => { 
-        console.log(`Confirming order for product ID: ${productId}`);
+    const handleConfirm = async (productId) => {
+        try {
+            const response = await axios.put(`${server_url}/cart/${productId}`, { status: 'confirmed' });
+            if (response.status === 200) {
+                console.log(`Order confirmed for product ID: ${productId}`); 
+                setCartProducts((prevProducts) =>
+                    prevProducts.map((product) =>
+                        product.productId === productId ? { ...product, status: 'confirmed' } : product
+                    )
+                );
+            }
+        } catch (error) {
+            console.error('Error confirming order:', error);
+        }
     };
+
+    // Filter products with status 'received'
+    const receivedProducts = cartProducts.filter(product => product.status === 'received');
 
     return (
         <div className="p-6 bg-gray-900 min-h-screen text-white">
@@ -37,7 +52,7 @@ const Orders = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {cartProducts.map((product) => (
+                    {receivedProducts.map((product) => (
                         <tr key={product.productId} className="hover:bg-gray-700">
                             <td className="py-2 px-4 border-b border-gray-700">{product.productId}</td>
                             <td className="py-2 px-4 border-b border-gray-700">{product.productName}</td>

@@ -2,23 +2,24 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className="banner-container flex flex-col md:flex-row items-center bg-white p-6 md:p-12">
+        <div className="relative min-h-screen flex items-center justify-center">
+            {/* Background Image */}
+            <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                    backgroundImage: `url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+                    filter: 'blur(5px)',
+                }}
+            ></div>
+
             {/* Text Section */}
-            <div className="banner-text flex-grow text-center md:text-left md:pr-6">
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            <div className="relative z-10 text-center p-6 md:p-12 bg-gray-300 bg-opacity-70 rounded-lg shadow-lg">
+                <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-950 mb-4">
                     Welcome to Winterfall
                 </h1>
-                <p className="text-lg md:text-xl text-gray-600">
+                <p className="text-lg md:text-xl font-mono text-gray-600">
                     Your ultimate destination for winter fashion — Men, Women, and Children
                 </p>
-            </div>
-            {/* Image Section */}
-            <div className="mt-6 md:mt-0">
-                <img
-                    src="../../../../public/images/banner-wintefall.png"
-                    alt="Winterfall Banner"
-                    className="banner-image max-w-full h-auto rounded-lg"
-                />
             </div>
         </div>
     );

@@ -30,10 +30,10 @@ const Admin = () => {
                 {cartItems?.map(item => (
                     <li key={item.productId} className="flex justify-between items-center border-b py-2">
                         <div className='flex flex-col'>
-                            <span className='text-xs text-gray-600'>Product Id: {item.productId}</span> {/* Adjust according to your data structure */}
-                            <span>Product Name: {item.productName}</span> {/* Adjust according to your data structure */}
-                            <span>Total Price: {item.price}</span> {/* Adjust according to your data structure */}
-                            <span>Quantity: {item.quantity}</span> {/* Adjust according to your data structure */}
+                            <span className='text-xs text-gray-600'>Product Id: {item.productId}</span>
+                            <span>Product Name: {item.productName}</span>
+                            <span>Total Price: {item.price}</span>
+                            <span>Quantity: {item.quantity}</span>
                         </div>
                         <button
                             onClick={() => handleApprove(item.id)}

@@ -32,8 +32,8 @@ const Register = () => {
         e.preventDefault();
 
         // Validation example
-        if (!formData.name || !formData.email || !formData.bankAccount || !formData.password) {
-            setError('All fields are required.');
+        if (!formData.email || !formData.password) {
+            setError('email or password fields are required.');
             return;
         }
 

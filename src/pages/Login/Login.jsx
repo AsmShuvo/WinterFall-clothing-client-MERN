@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ const Login = () => {
                 const user = res.user;
                 console.log("Signed in user: ", user);
                 setError(null);
-                alert('Login Successful');
+                Swal.fire("Login Successfull")
                 navigate("/");
             })
             .catch(err => {

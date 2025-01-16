@@ -12,6 +12,7 @@ import CheckoutPage from "../pages/Checkout/CheckoutPage";
 import Admin from "../pages/Admin/Admin";
 import Dashboard from "../Layout/Dashboard";
 import Orders from "../pages/Orders/Orders";
+import BankPage from "../pages/Bank/BankPage";
 
 export const router = createBrowserRouter([
     {
@@ -44,15 +45,19 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/cart",
-                element: <Cart />
+                element: <PrivateRoute><Cart /></PrivateRoute>
             },
             {
                 path: "/checkout",
-                element: <CheckoutPage />
+                element: <PrivateRoute><CheckoutPage /></PrivateRoute>
             },
             {
                 path: "/admin",
-                element: <Admin />
+                element: <PrivateRoute> <Admin /></PrivateRoute>
+            },
+            {
+                path: "/bank",
+                element: <PrivateRoute><BankPage /> </PrivateRoute>
             }
         ]
     },
