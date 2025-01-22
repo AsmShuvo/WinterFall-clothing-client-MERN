@@ -10,9 +10,7 @@ const CheckoutPage = () => {
     const server_url = import.meta.env.VITE_SERVER_URL;
 
     const [cartData, setCartData] = useState([]);
-    const [selectedMethod, setSelectedMethod] = useState('');
-    const [transactionId, setTransactionId] = useState('');
-    const [accountNumber, setAccountNumber] = useState('');
+    const [accountNumber] = useState('123-456-7890'); // Fixed account number for Dutch Bangla Bank Ltd
     const [userData, setUserData] = useState(null);
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
@@ -51,29 +49,11 @@ const CheckoutPage = () => {
         fetchUserData();
     }, [server_url, user?.email]);
 
-    const handleMethodChange = (method) => {
-        setSelectedMethod(method);
-        switch (method) {
-            case 'bkash':
-                setAccountNumber('01712345678');
-                break;
-            case 'rocket':
-                setAccountNumber('01812345678');
-                break;
-            case 'nagad':
-                setAccountNumber('01912345678');
-                break;
-            default:
-                setAccountNumber('');
-        }
+    const generateRandomTransactionId = () => {
+        return 'TRX' + Math.floor(Math.random() * 1000000000);
     };
 
-    const handleConfirm = async () => {
-        if (!transactionId) {
-            Swal.fire('Error', 'Please enter a transaction ID.', 'error');
-            return;
-        }
-
+    const handlePay = async () => {
         if (!password) {
             Swal.fire('Error', 'Please enter your password.', 'error');
             return;
@@ -84,18 +64,21 @@ const CheckoutPage = () => {
             return;
         }
 
+        const transactionId = generateRandomTransactionId();
+
         try {
             await Promise.all(cartData.map(async (item) => {
                 await axios.put(`${server_url}/cart/${item.productId}`, {
                     transactionId,
+                    status: 'paid',
                     email: user.email,
                 });
             }));
-            Swal.fire('Success', 'Your transaction has been confirmed!', 'success');
+            Swal.fire('Success', 'Your payment has been processed!', 'success');
             navigate('/cart');
         } catch (error) {
-            console.error('Error updating cart:', error);
-            Swal.fire('Error', 'Failed to confirm transaction.', 'error');
+            console.error('Error processing payment:', error);
+            Swal.fire('Error', 'Failed to process payment.', 'error');
         }
     };
 
@@ -156,65 +139,32 @@ const CheckoutPage = () => {
                     <span className="text-xl font-bold text-purple-600">${totalPrice.toFixed(2)}</span>
                 </div>
 
-                {/* Payment Method Selection */}
+                {/* Account Number Display */}
                 <div>
-                    <h2 className="text-xl font-semibold text-gray-800 mb-2">Select Payment Method:</h2>
-                    <div className="flex justify-around">
-                        {['bkash', 'rocket', 'nagad'].map((method) => (
-                            <button
-                                key={method}
-                                className={`flex-1 mx-1 p-2 rounded-lg transition-colors duration-200 ${selectedMethod === method ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-purple-300'
-                                    }`}
-                                onClick={() => handleMethodChange(method)}
-                            >
-                                {method.charAt(0).toUpperCase() + method.slice(1)}
-                            </button>
-                        ))}
+                    <p className='font-semibold text-gray-500'>Dutch Bangla Bank Ltd Account Number: <span className='text-lg'>{accountNumber}</span></p>
+                    {/* Password Input */}
+                    <div>
+                        <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
+                            Re-enter Your Password:
+                        </label>
+                        <input
+                            id="password"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Enter your password"
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        />
                     </div>
                 </div>
 
-                {/* Transaction ID Input */}
-                {selectedMethod && (
-                    <div>
-                        <p className='font-semibold  text-gray-500'>Bkash/Nagad/Rocket Number: <span className='text-lg '>01712345678</span></p>
-                        <label htmlFor="transactionId" className="block text-gray-700 font-semibold mb-2">
-                            Transaction ID:
-                        </label>
-                        <input
-                            id="transactionId"
-                            type="text"
-                            value={transactionId}
-                            onChange={(e) => setTransactionId(e.target.value)}
-                            placeholder="Enter your Transaction ID"
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                        />
-                        {/* Password Input */}
-                        <div>
-                            <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
-                                Re-enter Your Password:
-                            </label>
-                            <input
-                                id="password"
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Enter your password"
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                            />
-                        </div>
-                    </div>
-
-                )}
-
-
-
-                {/* Confirm Button */}
+                {/* Pay Button */}
                 <div>
                     <button
-                        onClick={handleConfirm}
+                        onClick={handlePay}
                         className="w-full bg-purple-600 text-white p-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200"
                     >
-                        Confirm
+                        Pay
                     </button>
                 </div>
             </div>

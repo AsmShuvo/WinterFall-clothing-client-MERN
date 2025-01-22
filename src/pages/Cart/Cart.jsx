@@ -12,7 +12,7 @@ const Cart = () => {
     useEffect(() => {
         const fetchCartItems = async () => {
             if (!user?.email) return;
-
+    
             try {
                 const response = await axios.get(`${server_url}/cart`, {
                     params: { email: user.email }
@@ -22,7 +22,7 @@ const Cart = () => {
                 setError('Failed to fetch cart items.');
             }
         };
-
+    
         fetchCartItems();
     }, [server_url, user?.email]);
 

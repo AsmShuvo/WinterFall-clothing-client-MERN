@@ -75,7 +75,7 @@ const Register = () => {
 
             })
             .catch(err => {
-                setError(err.message || "Something went wrong.");
+                setError("Registration failed. Please try again");
             });
     };
 

@@ -61,7 +61,7 @@ const Navbar = () => {
                         <FaRegUserCircle />{user?.email}
                     </span>
                     {user?.email === "admin@gmail.com" ? (
-                        <Link to="/dashboard" className='flex items-center gap-1 py-1 px-4 bg-blue-600 rounded-full'>
+                        <Link to="/dashboard/orders" className='flex items-center gap-1 py-1 px-4 bg-blue-600 rounded-full'>
                             <span className='font-bold text-white'>Admin</span>
                             <MdAdminPanelSettings className='text-3xl text-gray-200' />
                         </Link>
